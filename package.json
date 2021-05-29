@@ -1,0 +1,40 @@
+{
+  "name": "iot-serialport-transfer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "eslint:comment": "使用 ESLint 检查并自动修复 src 目录下所有扩展名为 .ts 的文件",
+    "eslint": "eslint --fix src --ext .ts --max-warnings=0",
+    "dev:comment": "启动开发环境",
+    "dev": "tsc && SET DEBUG=* && node ./dist/index",
+    "app:comment": "启动开发环境",
+    "app": "tsc && SET DEBUG=App* && node ./dist/index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://aiyong.li:12345678@wzbtest.ecoprobio.cn/aiyong.li/iot-serialport-transfer.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/dateformat": "^3.0.1",
+    "@types/debug": "^4.1.5",
+    "@types/node": "^15.6.1",
+    "@types/serialport": "^8.0.1",
+    "@types/sleep": "0.0.8",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.23.3",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.1.0",
+    "ts-node-dev": "^1.1.6"
+  },
+  "dependencies": {
+    "dateformat": "^4.5.1",
+    "jsmodbus": "^4.0.6",
+    "serialport": "^9.0.8",
+    "sleep": "^6.3.0",
+    "typescript": "^4.3.2"
+  }
+}
