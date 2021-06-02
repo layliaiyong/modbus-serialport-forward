@@ -5,7 +5,7 @@ export const config = {
 
     origins: [{
         socket_type: 0,
-        port: 'com14',
+        port: 'com104',
         baudrate: 9600,
         databits: 8,
         parity: 'none',

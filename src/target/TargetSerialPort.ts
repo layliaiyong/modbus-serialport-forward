@@ -63,7 +63,7 @@ export default class TargetSerialPort extends Base {
         try {
             Helper.debug(this.classname, 'send to target', request.createPayload());
             await this._send(request, (...args: any[]) => {
-                msleep(100);
+                // msleep(100);
                 cb(...args);
             });
         } catch(err) {
@@ -82,9 +82,9 @@ export default class TargetSerialPort extends Base {
         }
         if(request.body instanceof ReadCoilsRequestBody) {
             // 标准
-            // const resolve = await poller.readCoils(request.body.start, request.body.count);
+            const resolve = await poller.readCoils(request.body.start, request.body.count);
             // 深圳市艾尔赛科技有限公司，不支持读单个，使用读取8个
-            const resolve = await poller.readCoils(request.body.start, 8);
+            // const resolve = await poller.readCoils(request.body.start, 8);
             const buffer = resolve.response.createPayload();
             Helper.debug(this.classname, 'ReadCoilsRequestBody cb buffer:', buffer);
             cb(buffer);
@@ -100,7 +100,7 @@ export default class TargetSerialPort extends Base {
             Helper.debug(this.classname, 'ReadHoldingRegistersRequestBody cb buffer:', buffer);
             cb(buffer);
         } else if(request.body instanceof ReadInputRegistersRequestBody) {
-            const resolve = await poller.readHoldingRegisters(request.body.start, request.body.count);
+            const resolve = await poller.readInputRegisters(request.body.start, request.body.count);
             const buffer = resolve.response.createPayload();
             Helper.debug(this.classname, 'ReadInputRegistersRequestBody cb buffer:', buffer);
             cb(buffer);
