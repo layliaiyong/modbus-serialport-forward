@@ -46,6 +46,10 @@ export default class TargetSerialPort extends Base {
         return () => {};
     }
 
+    get timeout(): number {
+        return 1000;
+    }
+
     constructor(app: App, options: DefaultOptions) {
         super();
         this.app = app;
@@ -77,7 +81,7 @@ export default class TargetSerialPort extends Base {
         // }
         let poller;
         if(!(poller = this.pollers.get(request.slaveId))) {
-            poller = new ModbusRTUClient(this.socket, request.slaveId, 1000);
+            poller = new ModbusRTUClient(this.socket, request.slaveId, this.timeout);
             this.pollers.set(request.slaveId, poller);
         }
         if(request.body instanceof ReadCoilsRequestBody) {
