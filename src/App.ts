@@ -30,7 +30,7 @@ export default class App extends Base {
             error && Helper.debug(this.classname, 'ERROR', 'origin_open_callback', error);
         };
         const origin_listener = async (request: ModbusRTURequest, cb: Function) => {
-            Helper.debug(this.classname, 'origin_listener', request.createPayload());
+            // Helper.debug(this.classname, 'origin_listener', request.createPayload());
 
             for (const target of this.targets) {
                 await target.send(request, cb);
